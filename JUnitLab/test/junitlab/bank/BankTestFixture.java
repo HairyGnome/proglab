@@ -41,5 +41,11 @@ public class BankTestFixture
 	{
 		bank.transfer(account1, account2, 3456);
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testTransferNegativeFunds() throws Exception
+	{
+		bank.transfer(account2, account1, -1000);
+	}
 
 }
