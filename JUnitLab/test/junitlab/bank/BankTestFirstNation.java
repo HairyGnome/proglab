@@ -8,13 +8,13 @@ import org.junit.Test;
 import junitlab.bank.impl.FirstNationalBank;
 import junitlab.bank.impl.GreatSavingsBank;
 
-public class BankTest
+public class BankTestFirstNation
 {
 	Bank bank;
 	@Before
 	public void setup()
 	{
-		bank = new GreatSavingsBank();
+		bank = new FirstNationalBank();
 	}
 	
 	@Test
@@ -36,7 +36,7 @@ public class BankTest
 	@Test(expected = AccountNotExistsException.class)
 	public void testInvalidAccount() throws Exception
 	{
-		bank.getBalance("almáspite");
+		bank.getBalance("account");
 	}
 	
 	@Test
@@ -46,13 +46,6 @@ public class BankTest
 		bank.deposit(account, 2000);
 		long balance = bank.getBalance(account);
 		org.junit.Assert.assertEquals(2000, balance);
-	}
-	
-	@Test(expected = IllegalArgumentException.class)
-	public void testDepositNegative() throws Exception
-	{
-		String account = bank.openAccount();
-		bank.deposit(account, -1000);
 	}
 	
 	@Test(expected = AccountNotExistsException.class)

@@ -14,12 +14,12 @@ import junitlab.bank.impl.FirstNationalBank;
 import junitlab.bank.impl.GreatSavingsBank;
 
 @RunWith(Parameterized.class)
-public class BankParamTest
+public class BankParamTestFirstNation
 {
 	long amount;
 	long rounded;
 	
-	public BankParamTest(long amount, long rounded)
+	public BankParamTestFirstNation(long amount, long rounded)
 	{
 		this.amount = amount;
 		this.rounded = rounded;
@@ -41,10 +41,11 @@ public class BankParamTest
 	@Test
 	public void testWithdrawRounding() throws Exception
 	{
-		Bank bank = new GreatSavingsBank();
+		Bank bank = new FirstNationalBank();
 		String account = bank.openAccount();
 		bank.deposit(account, 10000);
 		bank.withdraw(account, amount);
 		org.junit.Assert.assertEquals(10000-rounded, bank.getBalance(account));
 	}
+
 }
