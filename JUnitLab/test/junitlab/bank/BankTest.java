@@ -35,7 +35,7 @@ public class BankTest
 	@Test(expected = AccountNotExistsException.class)
 	public void testInvalidAccount() throws Exception
 	{
-		bank.getBalance("almáspite");
+		bank.getBalance("something");
 	}
 	
 	@Test
