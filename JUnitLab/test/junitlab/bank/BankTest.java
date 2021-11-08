@@ -6,14 +6,15 @@ import org.junit.Before;
 import org.junit.Test;
 
 import junitlab.bank.impl.FirstNationalBank;
+import junitlab.bank.impl.GreatSavingsBank;
 
 public class BankTest
 {
-	FirstNationalBank bank;
+	Bank bank;
 	@Before
 	public void setup()
 	{
-		bank = new FirstNationalBank();
+		bank = new GreatSavingsBank();
 	}
 	
 	@Test
@@ -35,7 +36,7 @@ public class BankTest
 	@Test(expected = AccountNotExistsException.class)
 	public void testInvalidAccount() throws Exception
 	{
-		bank.getBalance("something");
+		bank.getBalance("almáspite");
 	}
 	
 	@Test

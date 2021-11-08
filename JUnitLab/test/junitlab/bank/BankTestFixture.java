@@ -7,18 +7,19 @@ import org.junit.Test;
 
 import junit.framework.Assert;
 import junitlab.bank.impl.FirstNationalBank;
+import junitlab.bank.impl.GreatSavingsBank;
 
 public class BankTestFixture
 {
 	
-	FirstNationalBank bank;
+	Bank bank;
 	String account1;
 	String account2;
 	
 	@Before
 	public void setup() throws Exception
 	{
-		bank = new FirstNationalBank();
+		bank = new GreatSavingsBank();
 		
 		account1 = bank.openAccount();
 		account2 = bank.openAccount();
